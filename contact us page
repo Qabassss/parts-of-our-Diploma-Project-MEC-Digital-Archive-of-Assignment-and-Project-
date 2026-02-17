@@ -1,0 +1,455 @@
+<html>
+<head>
+   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Contact Us Page</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      background-image: url('aaaa.png');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li {
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+      padding: 5px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 17px;
+      transition: color 0.3s;
+    }
+
+    .menu::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      border-radius: 5px;
+      transform: scaleX(0);
+      transition: all 0.5s ease;
+      bottom: 0;
+      left: 0;
+    }
+
+    .menu:hover::before {
+      transform: scaleX(1);
+    }
+
+    .searchbox {
+      display: flex;
+      align-items: center;
+    }
+
+    .searchbox input {
+      height: 35px;
+      border: none;
+      border-radius: 20px;
+      padding: 0 15px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .search-button {
+      margin-left: 10px;
+      padding: 8px 16px;
+      border: none;
+      background-color: #656771;
+      color: #ffffff;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .search-button:hover {
+      background-color: #ffc107;
+    }
+
+      .menu-button {
+      text-decoration: none;
+      padding: 4px 25px;
+      background-color: #b8d4ed;
+      color: white;
+      border-radius: 25px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .menu-button:hover {
+      background-color: #768cab;;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, border 0.3s ease;
+      background: #fff;
+      cursor: pointer;
+      border: 3px solid #ffffff;
+    }
+
+    .card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .card .details {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #333;
+      text-align: center;
+      transition: bottom 0.4s ease;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .card.active {
+      transform: translateY(-10px);
+    }
+
+    .card.active img {
+      transform: scale(1.1);
+    }
+
+    .card.active .details {
+      bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .grid {
+        padding-top: 20px;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .contact {
+      position: relative;
+      min-height: 100vh;
+      padding: 50px 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: url(aaaa.png);
+      background-size: cover;
+    }
+
+    .contact .content {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .contact .content h2 {
+      font-size: 36px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .contact .content p {
+      font-weight: 300;
+      color: #fff;
+    }
+
+    .container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .container .contactInfo {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container .contactInfo .box {
+      position: relative;
+      padding: 20px 0;
+      display: flex;
+    }
+
+    .container .contactInfo .box .icon {
+      min-width: 60px;
+      height: 60px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-size: 22px;
+    }
+
+    .container .contactInfo .box .text {
+      display: flex;
+      margin-left: 20px;
+      font-size: 16px;
+      color: #fff;
+      flex-direction: column;
+      font-weight: 300;
+    }
+
+    .container .contactInfo .box .text h3 {
+      font-weight: 500;
+      color: #b2e4eb;
+    }
+
+    .contactForm {
+      width: 40%;
+      padding: 40px;
+      background: #fff;
+    }
+
+    .contactForm h2 {
+      font-size: 30px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .contactForm .inputBox {
+      position: relative;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .contactForm .inputBox input,
+    .contactForm .inputBox textarea {
+      width: 100%;
+      padding: 5px 0;
+      font-size: 16px;
+      margin: 10px 0;
+      border: none;
+      border-bottom: 2px solid #333;
+      outline: none;
+      resize: none;
+    }
+
+    .contactForm .inputBox span {
+      position: absolute;
+      left: 0;
+      padding: 5px 0;
+      font-size: 16px;
+      margin: 10px 0;
+      pointer-events: none;
+      transition: 0.5s;
+      color: #666;
+    }
+
+    .contactForm .inputBox input:focus ~ span,
+    .contactForm .inputBox input:valid ~ span,
+    .contactForm .inputBox textarea:focus ~ span,
+    .contactForm .inputBox textarea:valid ~ span {
+      color: #ff0000;
+      font-size: 12px;
+      transform: translateY(-20px);
+    }
+
+    .contactForm .inputBox input[type="submit"] {
+      width: 100px;
+      background: #b2e4eb;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 991px) {
+      .contact {
+        padding: 50px;
+      }
+
+      .container {
+        flex-direction: column;
+      }
+
+      .container .contactInfo {
+        width: 100%;
+        margin-bottom: 40px;
+      }
+
+      .contactForm {
+        width: 100%;
+      }
+    }
+
+       .footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 12px;
+       color: #888;
+    }
+
+  </style>
+</head>
+<body>
+
+ 
+  
+  <header>
+    <div class="searchbox">
+      <input type="text" id="searchInput" placeholder="Search..." />
+      <button onclick="searchNow()" class="search-button">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+      <nav>
+      <ul>
+        <li><ion-icon name="home-outline"></ion-icon><a href="" class="menu">Home</a></li>
+        <li><ion-icon name="book-outline"></ion-icon><a href=".html" class="menu">About</a></li>
+        <li><ion-icon name="chatbubble-ellipses-outline"></ion-icon><a href="contact us.html" class="menu">Contact Us</a></li>
+         <a href=".html" class="menu-button">Login</a>
+    </nav>
+  </header>
+  
+  <section class="contact">
+    <div class="content">
+      <h2>Contact Us</h2>
+      <p>If you require any assistance, have questions about the archive,
+         or would like to offer suggestions for improvement, we encourage
+          you to contact us. Our team is dedicated to supporting students
+           and ensuring the archive remains a useful and accessible resource
+            for everyone. We appreciate your feedback and will respond to your
+             inquiry as promptly and professionally as possible.
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="contactInfo">
+
+        <div class="box">
+          <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+          <div class="text">
+            <h3>Email</h3>
+            <p>MECARCHIVE@MEC.EDU.OM</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+          <div class="text">
+            <h3>Phone</h3>
+            <p>+968 12345678</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="contactForm">
+        <form>
+          <h2>Send Message</h2>
+
+          <div class="inputBox">
+            <input type="text" name="fullName" required="required">
+            <span>Full Name</span>
+          </div>
+
+          <div class="inputBox">
+            <input type="email" name="email" required="required">
+            <span>Email</span>
+          </div>
+
+          <div class="inputBox">
+            <textarea name="message" required="required"></textarea>
+            <span>Type your message...</span>
+          </div>
+
+          <div class="inputBox">
+            <input type="submit" value="Send">
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">Copyright@2025 MEC Digital Archive </div>
+</body>
+</html>
